@@ -72,7 +72,7 @@ def detail(plant_id):
     # TODO: Replace the following line with a database call to retrieve *one*
     # plant from the database, whose id matches the id passed in via the URL.
     plant_to_show = plants_collection.find_one(
-        {'_id': ObjectID(plant_id)})
+        {'_id': ObjectId(plant_id)})
 
     # TODO: Use the `find` database operation to find all harvests for the
     # plant's id.
@@ -132,7 +132,7 @@ def edit(plant_id):
         # TODO: Make a `find_one` database call to get the plant object with the
         # passed-in _id.
         plant_to_show = plants_collection.find_one(
-            {'_id': ObjectID(plant_id)})
+            {'_id': ObjectId(plant_id)})
 
         context = {
             'plant': plant_to_show
@@ -145,7 +145,7 @@ def edit(plant_id):
 def delete(plant_id):
     # TODO: Make a `delete_one` database call to delete the plant with the given
     # id.
-    plants_collection.delete_one({'_id': ObjectID(plant_id)})
+    plants_collection.delete_one({'_id': ObjectId(plant_id)})
     # TODO: Also, make a `delete_many` database call to delete all harvests with
     # the given plant id.
     harvest_collection.delete_many({'plant_id': plant_id})
